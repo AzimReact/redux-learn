@@ -1,6 +1,7 @@
 import './App.css';
 import {useDispatch, useSelector} from "react-redux";
 import {addCustomerAction, removeCustomerAction} from "./store/customerReducer";
+import {fetchCusomers} from "./asyncActions/customers";
 
 function App() {
 
@@ -41,8 +42,9 @@ return (
                         {customer.name}
                     </div>)}
             </div>
-        : <div style={{fontSize: '2rem', marginTop: 20}}>No clients!</div>}
+        : <div style={{fontSize: '2rem', marginTop: 20}}>No client!</div>}
         <button onClick={() => addCustomer(prompt())}>ADD CLIENT</button>
+        <button onClick={() => dispatch(fetchCusomers())}>GET ALL CLIENTS FROM BASE</button>
     </div>
   );
 }
